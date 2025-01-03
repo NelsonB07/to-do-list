@@ -11,6 +11,7 @@ function adicionarNovaTarefa() {
   })
 
   input.value = ''
+  input.focus()
 
   mostrarTarefas()
 }
@@ -18,7 +19,7 @@ function adicionarNovaTarefa() {
 function mostrarTarefas() {
   let novaLi = ''
 
-  // ['comprar café', 'estudar programação']
+  
 
   minhaListaDeItens.forEach((item, posicao) => {
     novaLi =
@@ -60,6 +61,12 @@ function recarregarTarefas() {
 
   mostrarTarefas()
 }
+
+input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      adicionarNovaTarefa()
+    }
+  })
 
 recarregarTarefas()
 button.addEventListener('click', adicionarNovaTarefa)
